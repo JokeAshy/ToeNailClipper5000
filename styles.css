@@ -31,11 +31,24 @@ body {
 .game-shell {
   width: 100%;
   max-width: 940px;
+  margin: 0 auto;
   background: var(--panel-bg);
   border: 2px solid var(--panel-border);
   border-radius: 20px;
   padding: 20px;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+}
+
+.game-layout {
+  position: relative;
+  width: 100%;
+  max-width: 1680px;
+}
+
+.side-promo {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 /* Header & Stats */
@@ -396,5 +409,14 @@ kbd {
   .promo-link::before,
   .promo-icon {
     animation: none;
+  }
+}
+
+@media (max-width: 1500px) {
+  .side-promo {
+    position: relative;
+    display: flex;
+    width: fit-content;
+    margin: 0 auto 16px;
   }
 }
