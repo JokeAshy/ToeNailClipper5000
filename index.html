@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toenail Clipper 5000</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="game-shell">
+    <!-- Top HUD -->
+    <header class="hud">
+      <div class="brand">
+        <span class="badge">DELUXE EDITION</span>
+        <h1>TOENAIL CLIPPER <span>5000</span></h1>
+      </div>
+
+      <div class="stats">
+        <div class="stat-card">
+          <span class="label">CLIPPED</span>
+          <span class="value" id="clippedCount">0 / 500</span>
+        </div>
+        <div class="stat-card">
+          <span class="label">COMBO</span>
+          <span class="value combo" id="comboCount">x1</span>
+        </div>
+        <div class="stat-card">
+          <span class="label">SCORE</span>
+          <span class="value" id="scoreCount">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="label">TIME</span>
+          <span class="value timer" id="timeLeft">60.0s</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Road to 500 Progress Bar -->
+    <div class="progress-wrapper">
+      <div class="progress-meta">
+        <span>ROAD TO 500 NAILS</span>
+        <span id="progressPercent">0%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <!-- Main Interactive Canvas Area -->
+    <main class="stage-container">
+      <canvas id="gameCanvas" width="900" height="480"></canvas>
+
+      <!-- Start / Game Over Overlay -->
+      <div class="overlay" id="menuOverlay">
+        <div class="modal">
+          <div class="modal-tag" id="modalTag">PEDICURE ARCADE SIMULATOR</div>
+          <h2 id="modalTitle">TOENAIL CLIPPER 500</h2>
+          <p id="modalDesc">
+            Aim the precision clippers over the <strong>green trim zone</strong> and click or press
+            <strong>SPACE</strong> to snip! Avoid clipping too deep into the pink nail bed.
+          </p>
+
+          <div class="legend">
+            <div class="legend-item">
+              <span class="dot standard"></span> Standard (1x)
+            </div>
+            <div class="legend-item">
+              <span class="dot armored"></span> Thick Armor (2 Snips)
+            </div>
+            <div class="legend-item">
+              <span class="dot turbo"></span> Turbo Grower (+30 pts)
+            </div>
+            <div class="legend-item">
+              <span class="dot golden"></span> Golden VIP (+100 pts &amp; +3s)
+            </div>
+          </div>
+
+          <div class="final-stats hidden" id="finalStats">
+            <div>Final Score: <strong id="finalScore">0</strong></div>
+            <div>Nails Clipped: <strong id="finalClipped">0 / 500</strong></div>
+            <div>Max Combo: <strong id="finalCombo">x1</strong></div>
+          </div>
+
+          <button class="btn-primary" id="startBtn">START CLIPPING</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Controls Footer -->
+    <footer class="controls-bar">
+      <div class="hint">
+        <strong>Controls:</strong> Move Mouse to Aim • Click or <kbd>SPACE</kbd> to Snip
+      </div>
+      <div class="actions">
+        <button class="btn-secondary" id="soundToggleBtn">🔊 Sound: ON</button>
+        <button class="btn-secondary" id="resetBtn">↻ Restart</button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
