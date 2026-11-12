@@ -295,7 +295,10 @@ kbd {
 
 .actions {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   gap: 8px;
+  margin-left: auto;
 }
 
 .btn-secondary {
@@ -315,4 +318,83 @@ kbd {
 
 .btn-secondary:hover {
   background: #262f47;
+}
+
+.promo-link {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid #fff1a8;
+  border-radius: 10px;
+  background: linear-gradient(120deg, #facc15, #fb923c 52%, #f472b6);
+  color: #28120a;
+  font-size: 0.9rem;
+  font-weight: 900;
+  box-shadow: 0 0 12px rgba(250, 204, 21, 0.65), 0 5px 18px rgba(244, 114, 182, 0.35);
+  animation: promo-glow 2s ease-in-out infinite alternate;
+}
+
+.promo-link::before {
+  position: absolute;
+  z-index: 0;
+  inset: -50% auto -50% -40%;
+  width: 28%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  content: "";
+  pointer-events: none;
+  transform: skewX(-20deg);
+  animation: promo-shine 2.8s ease-in-out infinite;
+}
+
+.promo-link span {
+  position: relative;
+  z-index: 1;
+}
+
+.promo-icon {
+  position: relative;
+  z-index: 1;
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.promo-link:hover {
+  background: linear-gradient(120deg, #fde047, #fb923c 52%, #f472b6);
+  box-shadow: 0 0 18px rgba(250, 204, 21, 0.85), 0 7px 22px rgba(244, 114, 182, 0.5);
+  transform: translateY(-2px);
+}
+
+.promo-link:hover .promo-icon {
+  animation: star-spin 0.8s linear infinite;
+}
+
+.promo-link:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+@keyframes star-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes promo-shine {
+  0%, 25% { left: -40%; }
+  70%, 100% { left: 125%; }
+}
+
+@keyframes promo-glow {
+  from { box-shadow: 0 0 10px rgba(250, 204, 21, 0.5), 0 5px 15px rgba(244, 114, 182, 0.3); }
+  to { box-shadow: 0 0 17px rgba(250, 204, 21, 0.8), 0 5px 20px rgba(244, 114, 182, 0.48); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .promo-link,
+  .promo-link::before,
+  .promo-icon {
+    animation: none;
+  }
 }
