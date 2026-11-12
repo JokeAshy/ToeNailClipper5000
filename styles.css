@@ -299,6 +299,8 @@ kbd {
 }
 
 .btn-secondary {
+  display: inline-flex;
+  align-items: center;
   background: #151a28;
   color: var(--text-main);
   border: 1px solid var(--panel-border);
@@ -307,6 +309,7 @@ kbd {
   font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
+  text-decoration: none;
   transition: background 0.15s;
 }
 
